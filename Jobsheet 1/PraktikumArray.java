@@ -13,7 +13,7 @@ public class PraktikumArray {
         for (int i = 0; i < jumlahMK; i++) {
             System.out.print("Masukkan nama mata kuliah ke-" + (i + 1) + ": ");
             mataKuliah[i] = scanner.nextLine();
-            
+        
             System.out.print("Masukkan bobot SKS untuk " + mataKuliah[i] + ": ");
             bobotSKS[i] = scanner.nextDouble();
             
