@@ -15,8 +15,7 @@ public class MahasiswaMain17 {
         mhs2.updateIpk(3.30);
         mhs2.tampilkanInformasi();
 
-        Mahasiswa17 mhs3 = new Mahasiswa17("Muhammad Daffi Firos Zaidan", "244107020182", 3.61, "TI 1E");
-        mhs3.menilaiKinerja();
-        mhs3.tampilkanInformasi();
+        Mahasiswa17 mhsDaffi = new Mahasiswa17("Muhammad Daffi Firos Zaidan", "244107020182", 3.61, "TI 1E");
+        mhsDaffi.tampilkanInformasi();
     }
 }
