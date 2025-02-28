@@ -23,16 +23,16 @@
                 System.out.println("------------------------");
 
                 arrayOfMatakuliah[i] = new Matakuliah17(kode, nama, sks, jumlahJam);
-            }
-
-            for (int i = 0; i < 3; i++) {
-                System.out.println("Data Matakuliah ke-" + (i + 1));
-                System.out.println("Kode        : " + arrayOfMatakuliah[i].kode);
-                System.out.println("Nama        : " + arrayOfMatakuliah[i].nama);
-                System.out.println("SKS         : " + arrayOfMatakuliah[i].sks);
-                System.out.println("Jumlah Jam  : " + arrayOfMatakuliah[i].jumlahJam);
-                System.out.println("------------------------");
-            }
-
         }
+        System.out.println("\nData Matakuliah yang telah dimasukkan:");
+        for (Matakuliah17 mk : arrayOfMatakuliah) {
+            mk.cetakInfo();
+        }
+
+        Matakuliah17 mkBaru = new Matakuliah17();
+        mkBaru.tambahData();
+
+        System.out.println("\nData Matakuliah yang baru ditambahkan:");
+        mkBaru.cetakInfo();
     }
+}
