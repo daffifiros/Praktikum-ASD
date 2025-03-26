@@ -32,7 +32,7 @@ public class MahasiswaDemo17 {
         }
 
         System.out.println("\nData Mahasiswa Setelah Sorting Berdasarkan IPK (DESC):");
-        list.bubbleSort();
+        list.selectionSort();
         list.tampil();
     }
 }
