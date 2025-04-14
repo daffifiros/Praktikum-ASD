@@ -1,6 +1,11 @@
 public class MahasiswaBerprestasi17 {
-    Mahasiswa17[] listMhs = new Mahasiswa17[5];
+    Mahasiswa17[] listMhs;
     int idx;
+
+    public MahasiswaBerprestasi17(int jumlah) {
+        listMhs = new Mahasiswa17[jumlah];
+        idx = 0;
+    }
 
     void tambah(Mahasiswa17 m) {
         if (idx < listMhs.length) {
@@ -99,7 +104,7 @@ public class MahasiswaBerprestasi17 {
             mid = left + (right - left) / 2;
             if (cari == listMhs[mid].ipk) {
                 return (mid);
-            } else if (listMhs[mid].ipk < cari) {
+            } else if (listMhs[mid].ipk > cari) {
                 return findBinarySearch(cari, left, mid - 1);
             } else {
                 return findBinarySearch(cari, mid + 1, right);
