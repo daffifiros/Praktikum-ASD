@@ -38,7 +38,8 @@ public class MahasiswaDemo17 {
                         int nilai = sc.nextInt();
                         dinilai.tugasDinilai(nilai);
                         System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
-                        sc.nextLine(); // konsumsi enter
+                        String biner = stack.konversiDesimalKeBiner(nilai);
+                        System.out.println("Nilai Biner Tugas: " + biner);
                     }
                     break;
 
@@ -52,7 +53,9 @@ public class MahasiswaDemo17 {
                 case 4:
                     System.out.println("Daftar semua tugas:");
                     System.out.println("Nama\tNIM\tKelas");
-                    stack.print();
+                    for (int i = stack.top; i >= 0; i--) {
+                        System.out.println(stack.stack[i].nama + "\t" + stack.stack[i].nim + "\t" + stack.stack[i].kelas);
+                    }
                     break;
 
                 case 5:
