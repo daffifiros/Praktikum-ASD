@@ -30,7 +30,7 @@ public class QueueMain17 {
                     if (dataKeluar != 0) {
                         System.out.println("Data yang dikeluarkan: " + dataKeluar);
                         break;
-                }
+                    }
                 case 3:
                     Q.print();
                     break;

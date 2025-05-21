@@ -59,7 +59,9 @@ public class Queue17 {
 
     public void Enqueue (int dt) {
         if (isFull()) {
-            System.out.println("Queue sudah penuh");
+            System.out.println("Queue penuh");
+            System.out.println("Program dihentikan karena queue overflow!");
+            System.exit(1);
         } else {
             if (isEmpty()) {
                 front = rear = 0;
@@ -72,6 +74,7 @@ public class Queue17 {
             }
             data[rear] = dt;
             size++;
+            System.out.println(dt + "Berhasil masuk ke antrian");
         }
     }
 
