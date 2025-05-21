@@ -49,7 +49,7 @@ public class LayananAkademikSIAKAD17 {
                     break;
                 case 6:
                     antrian.LihatAkhir();
-                    break;
+                    break; 
                 case 0:
                     System.out.println("Terima kasih.");
                     break;
@@ -58,6 +58,5 @@ public class LayananAkademikSIAKAD17 {
             }
         } while (pilihan != 0);
         
-        sc.close();
     }
 }
