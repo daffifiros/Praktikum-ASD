@@ -28,6 +28,7 @@ public class DLLMain17 {
             System.out.println("4. Hapus di akhir");
             System.out.println("5. Tampilkan data");
             System.out.println("6. Cari Mahasiswa berdasarkan NIM");
+            System.out.println("7. Tambah data setelah NIM tertentu");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
@@ -60,6 +61,17 @@ public class DLLMain17 {
                         found.data.tampil();
                     } else {
                         System.out.println("Data Mahasiswa dengan NIM " + nimCari + " tidak ditemukan.");
+                    }
+                    break;
+                case 7:
+                    System.out.print("Masukkan NIM setelah mana data akan ditambahkan: ");
+                    String nimPatokan = sc.nextLine();
+                    Mahasiswa17 mhsBaru = inputMahasiswa();
+                    boolean berhasil = list.insertAfter(nimPatokan, mhsBaru);
+                    if (berhasil) {
+                        System.out.println("Data berhasil ditambahkan setelah NIM " + nimPatokan);
+                    } else {
+                        System.out.println("NIM patokan tidak ditemukan!");
                     }
                     break;
                 case 0:

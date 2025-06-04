@@ -69,15 +69,13 @@ public class DoubleLinkedLists17 {
     }
 
     public void print() {
-        if (!isEmpty()) {
-            Node17 tmp = head;
-            System.out.println("Data Mahasiswa:");
-            while (tmp != null) {
-                tmp.data.tampil();
-                tmp = tmp.next;
-            }
-        } else {
-            System.out.println("Linked List kosong");
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong!");
+            return;
+        }
+        Node17 current = head;
+        while (current != null) {
+            current.data.tampil();
         }
     }
 
@@ -90,5 +88,24 @@ public class DoubleLinkedLists17 {
             current = current.next;
         }
         return null;
+    }
+
+    public boolean insertAfter(String nimPatokan, Mahasiswa17 dataBaru) {
+        Node17 current = head;
+        while (current != null) {
+            if (current.data.nim.equals(nimPatokan)) {
+                Node17 newNode = new Node17(dataBaru);
+                newNode.next = current.next;
+                newNode.prev = current;
+                if (current.next != null) {
+                    current.next.prev = newNode;
+                }
+                current.next = newNode;
+                size++;
+                return true; // Berhasil
+            }
+            current = current.next;
+        }
+        return false; // NIM patokan tidak ditemukan
     }
 } 
