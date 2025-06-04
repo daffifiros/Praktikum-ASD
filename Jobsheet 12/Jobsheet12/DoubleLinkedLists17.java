@@ -1,10 +1,11 @@
 package Jobsheet12;
 public class DoubleLinkedLists17 {
-    Node17 head;
+    Node17 head, tail;
     int size;
 
     public DoubleLinkedLists17() {
         head = null;
+        tail = null;
         size = 0;
     }
 
@@ -13,10 +14,10 @@ public class DoubleLinkedLists17 {
     }
 
     public void addFirst(Mahasiswa17 item) {
+        Node17 newNode = new Node17(item);
         if (isEmpty()) {
-            head = new Node17(item);
+            head = tail = newNode;
         } else {
-            Node17 newNode = new Node17(item);
             newNode.next = head;
             head.prev = newNode;
             head = newNode;
@@ -25,45 +26,44 @@ public class DoubleLinkedLists17 {
     }
 
     public void addLast(Mahasiswa17 item) {
+        Node17 newNode = new Node17(item);
         if (isEmpty()) {
-            addFirst(item);
+            head = tail = newNode;
         } else {
-            Node17 current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            Node17 newNode = new Node17(item);
-            current.next = newNode;
-            newNode.prev = current;
-            size++;
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
         }
+        size++;
     }
 
     public void removeFirst() {
         if (isEmpty()) {
-            System.out.println("Linked List masih kosong, tidak dapat dihapus!");
-        } else if (size == 1) {
-            head = null;
-            size--;
+            System.out.println("Linked list masih kosong, tidak ada data yang bisa dihapus.");
         } else {
-            head = head.next;
-            head.prev = null;
-            size--;
+            Mahasiswa17 dataTerhapus = head.data;
+            if (head == tail) {
+                head = tail = null;
+            } else {
+                head = head.next;
+                head.prev = null;
+            }
+            System.out.println("Data sudah berhasil dihapus. Data yang terhapus adalah:");
+            System.out.println(dataTerhapus);
         }
     }
 
     public void removeLast() {
         if (isEmpty()) {
             System.out.println("Linked List masih kosong, tidak dapat dihapus!");
-        } else if (head.next == null) {
-            head = null;
+            return;
+        }
+        if (head == tail) {
+            head = tail = null;
             size--;
         } else {
-            Node17 current = head;
-            while (current.next.next != null) {
-                current = current.next;
-            }
-            current.next = null;
+            tail = tail.prev;
+            tail.next = null;
             size--;
         }
     }
@@ -76,6 +76,7 @@ public class DoubleLinkedLists17 {
         Node17 current = head;
         while (current != null) {
             current.data.tampil();
+            current = current.next;
         }
     }
 
@@ -90,22 +91,34 @@ public class DoubleLinkedLists17 {
         return null;
     }
 
-    public boolean insertAfter(String nimPatokan, Mahasiswa17 dataBaru) {
+    public void insertAfter(String keyNim, Mahasiswa17 data) {
         Node17 current = head;
-        while (current != null) {
-            if (current.data.nim.equals(nimPatokan)) {
-                Node17 newNode = new Node17(dataBaru);
-                newNode.next = current.next;
-                newNode.prev = current;
-                if (current.next != null) {
-                    current.next.prev = newNode;
-                }
-                current.next = newNode;
-                size++;
-                return true; // Berhasil
-            }
+
+        
+        while (current != null && !current.data.nim.equals(keyNim)) {
             current = current.next;
         }
-        return false; // NIM patokan tidak ditemukan
+
+        if (current == null) {
+            System.out.println("Node dengan NIM " + keyNim + " tidak ditemukan.");
+            return;
+        }
+
+        Node17 newNode = new Node17(data);
+
+        
+        if (current == tail) {
+            current.next = newNode;
+            newNode.prev = current;
+            tail = newNode;
+        } else {
+            
+            newNode.next = current.next;
+            newNode.prev = current;
+            current.next.prev = newNode;
+            current.next = newNode;
+        }
+
+        System.out.println("Node berhasil disisipkan setelah NIM " + keyNim);
     }
 } 

@@ -63,16 +63,11 @@ public class DLLMain17 {
                         System.out.println("Data Mahasiswa dengan NIM " + nimCari + " tidak ditemukan.");
                     }
                     break;
-                case 7:
+                    case 7:
                     System.out.print("Masukkan NIM setelah mana data akan ditambahkan: ");
                     String nimPatokan = sc.nextLine();
                     Mahasiswa17 mhsBaru = inputMahasiswa();
-                    boolean berhasil = list.insertAfter(nimPatokan, mhsBaru);
-                    if (berhasil) {
-                        System.out.println("Data berhasil ditambahkan setelah NIM " + nimPatokan);
-                    } else {
-                        System.out.println("NIM patokan tidak ditemukan!");
-                    }
+                    list.insertAfter(nimPatokan, mhsBaru); 
                     break;
                 case 0:
                     System.out.println("Keluar dari program.");
